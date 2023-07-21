@@ -14,3 +14,11 @@ a. http b. https c. path d.os e.fs
 1. Event loop is an infinite loop that node starts automatically, It has a counter which gets increases whenever a callback gets registered, event loop executes the callback, so it does not run the long running code, in event based architecture we have a function like func(longrunning, callback) the long running function like fiel read write, network operation are handled by worker, once long running tasks are finished, event loop executes the callback.
 2. eventloop runs on the main thread so it must be non blocking.
    Event loop first executes the callback of expired timer(settimeout, setinterval) then it looks for deferred callback, executes it for some time, if all callback does not get cleared it defer it further and move to poll phase where it does some io event after that it can go to timer or deffered callback.After this it goes to setImmidiate callback and then close events.
+
+## what is express
+
+Express is a framework, framework is basically a set of helper function which comes with some rules that soecifies how to use it, it anstracts multiple rae handling of node, example for parsing request we do not need to do chunking and buffering anymore.
+
+## What is middleware
+
+Middleware is a function or request handler that generally has three arguments request, response & next, We can register a middleware using app.use where app is express() return, app here itself a valid request handler, we can do app.get app.post, we register a function as middleware using app.use , a middleware works on the incoming request and then either send a response using response.send(content) / response.sendFile or it calls next to pass the incoming request to next middleware. if we do neither than request dies.
