@@ -38,3 +38,10 @@
 main {
   padding: 1.5%;
 }
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-bottom: 2rem;
+}

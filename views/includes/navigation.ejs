@@ -2,10 +2,18 @@
   <nav>
     <ul class="main-header__items">
       <li class="main-header__nav_item">
-        <a href="/shop">Shop</a>
+        <a class="<%= path==='/shop'? 'active':'' %>" href="/shop">Shop</a>
       </li>
       <li class="main-header__nav_item">
-        <a class="active" href="/add-product">Add Product</a>
+        <a class="<%= path==='/add-product'? 'active':'' %>" href="/add-product"
+          >Add Product</a
+        >
+      </li>
+      <li class="main-header__nav_item">
+        <a class="<%= path==='/cart'? 'active':'' %>" href="/cart">Cart</a>
+      </li>
+      <li class="main-header__nav_item">
+        <a class="<%= path==='/admin'? 'active':'' %>" href="/admin">Admin</a>
       </li>
     </ul>
   </nav>

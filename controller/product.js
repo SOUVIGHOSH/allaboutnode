@@ -3,12 +3,13 @@ const Product = require("../model/product");
 
 //controller method for showing add product ui
 exports.getAddProduct = (req, res, next) => {
-  res.render("addProduct", { pageTitle: "Add Product" });
+  res.render("addProduct", { pageTitle: "Add Product", path: req.url });
 };
 
 //constroller method for saving a product
 exports.postProduct = (req, res, next) => {
-  let product = new Product(req.body.title);
+  let { title, imgurl, price } = req.body;
+  let product = new Product(title, imgurl, price);
   product.save();
   res.redirect("/shop");
 };
@@ -20,6 +21,24 @@ exports.showProducts = (req, res, next) => {
     res.render("allProducts", {
       pageTitle: "My Shop",
       products,
+      path: req.url,
+    });
+  });
+};
+
+exports.showCart = (req, res, next) => {
+  res.render("cart", {
+    path: req.url,
+    pageTitle: "Cart  ",
+  });
+};
+
+exports.showAdmin = (req, res, next) => {
+  Product.fetchAll((products) => {
+    res.render("admin", {
+      pageTitle: "Admin Panel",
+      products,
+      path: req.url,
     });
   });
 };

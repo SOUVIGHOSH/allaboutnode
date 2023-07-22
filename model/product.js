@@ -16,8 +16,10 @@ const fetchProducts = (callback) => {
 
 //product model
 class Product {
-  constructor(title) {
+  constructor(title, imgURL, price) {
     this.title = title;
+    this.imgURL = imgURL;
+    this.price = price;
   }
 
   save() {
