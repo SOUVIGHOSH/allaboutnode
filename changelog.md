@@ -27,3 +27,7 @@ Middleware is a function or request handler that generally has three arguments r
 
 Template engines are ways to render the webpage dynamically, some populate engines are pug, ejs & handlebar, for pug and ejs express has in build support for handlebar thoug we need some additional configuration.
 for ejs syntax is like <%=%> for pug ${}, handlebar uses {{}}
+
+## What is MVC pattern
+
+Model view controller pattenr, Model is where we do stroing and retrieval of object , view is ui and controller is the glue between model and view.

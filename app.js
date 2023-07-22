@@ -36,7 +36,7 @@ app.use("/", (req, res, next) => {
 });
 
 //middleware order does matter
-app.use(adminRouter.adminRoute);
+app.use(adminRouter);
 app.use(shopRouter);
 
 // if any request is still not consumed lets send a 404 page

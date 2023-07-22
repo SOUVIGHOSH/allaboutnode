@@ -1,21 +1,11 @@
-// path is another core module
-const path = require("path");
 const express = require("express");
-
-const productList = [];
+const productController = require("../controller/product");
 
 // router is a mini express, this is also request handler
 const router = express.Router();
 
-router.get("/add-product", (req, res, next) => {
-  console.log(__dirname);
-  res.render("addProduct", { pageTitle: "Add Product" });
-});
+router.get("/add-product", productController.getAddProduct);
 
-router.post("/product", (req, res, next) => {
-  productList.push(req.body);
-  res.redirect("/shop");
-});
+router.post("/product", productController.postProduct);
 
-exports.adminRoute = router;
-exports.products = productList;
+module.exports = router;

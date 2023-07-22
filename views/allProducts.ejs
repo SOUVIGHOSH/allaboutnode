@@ -1,15 +1,14 @@
-<%- include("./includes/header") %>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./includes/header") %>
   <body>
-   <%- include("./includes/navigation") %>
+    <%- include("./includes/navigation") %>
     <main>
-      <% if(products.length > 0) { %>
-        <% for(let product of products) { %>
-      <h1><%= product.product %></h1>
+      <% if(products.length > 0) { %> <% for(let product of products) { %>
+      <h1><%= product.title %></h1>
+      <% } %> <% } else { %>
+      <h1>No Product available currently</h1>
       <% } %>
-      <% } else { %>
-        <h1>No Product available currently</h1>
-        <% } %>
     </main>
   </body>
 </html>
