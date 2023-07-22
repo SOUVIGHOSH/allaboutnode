@@ -1,0 +1,13 @@
+<%- include("./includes/header") %>
+  </head>
+  <body>
+    <%- include("./includes/navigation") %>
+    <main>
+      <form action="/product" method="post">
+        <label for="product_name">Product Name</label>
+        <input type="text" name="product" id="product_name" />
+        <button type="submit">Add Product</button>
+      </form>
+    </main>
+  </body>
+</html>

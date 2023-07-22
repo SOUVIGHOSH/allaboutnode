@@ -1,0 +1,15 @@
+<%- include("./includes/header") %>
+  </head>
+  <body>
+   <%- include("./includes/navigation") %>
+    <main>
+      <% if(products.length > 0) { %>
+        <% for(let product of products) { %>
+      <h1><%= product.product %></h1>
+      <% } %>
+      <% } else { %>
+        <h1>No Product available currently</h1>
+        <% } %>
+    </main>
+  </body>
+</html>

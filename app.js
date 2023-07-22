@@ -16,6 +16,12 @@ const app = express();
 // in general when next is not called we send response
 app.use(bodyParser.urlencoded());
 
+//app.set enables us to set some key value pair in global level and it will be shared accross the application
+//it also used to set template engine, express has inbuilt support for pug and ejs, for handlebar we need some additonal config
+app.set("view engine", "ejs");
+// the default views folder is views , so in this case it is redundant , but if we are using views folder in some different directory this will be required
+app.set("views", "views");
+
 // express static enables a folder for public, that is it can be directly accessed. no middleware or route is required
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -30,12 +36,16 @@ app.use("/", (req, res, next) => {
 });
 
 //middleware order does matter
-app.use(adminRouter);
+app.use(adminRouter.adminRoute);
 app.use(shopRouter);
 
 // if any request is still not consumed lets send a 404 page
 app.use("/", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "views", "404.html"));
+  // for sending static html file we use sendFile
+  //res.sendFile(path.join(__dirname, "views", "404.html"));
+
+  // when using templating engine express supports render function
+  res.status(404).render("404", { pageTitle: "Invalid Page" });
 });
 
 app.listen(3030);

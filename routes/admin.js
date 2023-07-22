@@ -2,17 +2,20 @@
 const path = require("path");
 const express = require("express");
 
+const productList = [];
+
 // router is a mini express, this is also request handler
 const router = express.Router();
 
 router.get("/add-product", (req, res, next) => {
   console.log(__dirname);
-  res.sendFile(path.join(__dirname, "../", "views", "addProduct.html"));
+  res.render("addProduct", { pageTitle: "Add Product" });
 });
 
 router.post("/product", (req, res, next) => {
-  console.log(req.body);
+  productList.push(req.body);
   res.redirect("/shop");
 });
 
-module.exports = router;
+exports.adminRoute = router;
+exports.products = productList;

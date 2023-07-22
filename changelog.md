@@ -22,3 +22,8 @@ Express is a framework, framework is basically a set of helper function which co
 ## What is middleware
 
 Middleware is a function or request handler that generally has three arguments request, response & next, We can register a middleware using app.use where app is express() return, app here itself a valid request handler, we can do app.get app.post, we register a function as middleware using app.use , a middleware works on the incoming request and then either send a response using response.send(content) / response.sendFile or it calls next to pass the incoming request to next middleware. if we do neither than request dies.
+
+## what are template engine
+
+Template engines are ways to render the webpage dynamically, some populate engines are pug, ejs & handlebar, for pug and ejs express has in build support for handlebar thoug we need some additional configuration.
+for ejs syntax is like <%=%> for pug ${}, handlebar uses {{}}
