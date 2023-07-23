@@ -35,3 +35,11 @@ Model view controller pattenr, Model is where we do stroing and retrieval of obj
 ## How to use dynamic routing
 
 We can register a route with :id and then the id can be fetched from req.params.id, we can also fetch query params from req.query.[key]
+
+## Difference between sql & Nosql
+
+In sql we have fixed schema, in Nosql we don't need a fixed schema, in sql we have tables, in nosql they are calleds connects, in sql we have records, nosql has documents, docments are like javascript object
+
+## what is difference between db.createPool and db.createConnection
+
+create pool creates a pool of db connecttion, we do not need to open a new connect for each db operation, db connection we need to handle this, at the end we do db.end() to close all connection in pool

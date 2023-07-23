@@ -8,6 +8,8 @@ const bodyParser = require("body-parser");
 const adminRouter = require("./routes/admin");
 const shopRouter = require("./routes/shop");
 
+const db = require("./util/database");
+
 const app = express();
 
 // we can use use method in app to use a middleware
@@ -24,6 +26,11 @@ app.set("views", "views");
 
 // express static enables a folder for public, that is it can be directly accessed. no middleware or route is required
 app.use(express.static(path.join(__dirname, "public")));
+
+// executes a sql statememnt
+db.execute("SELECT * FROM products")
+  .then((result) => console.log(result[0]))
+  .catch((err) => console.log("error", err));
 
 // the generic middles ware function has three param req,res,and next,
 // the first arg "/" is optional, is actually filtering path
