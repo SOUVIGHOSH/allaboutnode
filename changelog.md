@@ -31,3 +31,7 @@ for ejs syntax is like <%=%> for pug ${}, handlebar uses {{}}
 ## What is MVC pattern
 
 Model view controller pattenr, Model is where we do stroing and retrieval of object , view is ui and controller is the glue between model and view.
+
+## How to use dynamic routing
+
+We can register a route with :id and then the id can be fetched from req.params.id, we can also fetch query params from req.query.[key]
