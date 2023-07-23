@@ -9,10 +9,10 @@
         <div class="product-card__title"><h1><%= product.title %></h1></div>
         <img src="<%= product.imgURL %>" width="192" height="120" />
         <div class="product-card__price">$ <%= product.price %></div>
-        <form action="/edit-product/:<%= product.id %>" method="get">
+        <form action="/product/<%= product.id %>" method="get">
           <button type="submit">Edit Product</button>
         </form>
-        <form action="/product/:<%= product.id %>" method="delete">
+        <form action="/product/delete/<%= product.id %>" method="post">
           <button type="submit">Delete Product</button>
         </form>
       </div>
