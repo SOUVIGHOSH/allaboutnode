@@ -20,6 +20,7 @@ class Product {
     this.title = title;
     this.imgURL = imgURL;
     this.price = price;
+    this.id = Math.random();
   }
 
   save() {
